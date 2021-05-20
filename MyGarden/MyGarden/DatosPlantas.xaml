@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyGarden.DatosPlantas"  x:Name="VentanaCaracteristicas" BackgroundImage="Fondo"  NavigationPage.HasBackButton="False">
+
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label HorizontalOptions="Center" Text="Cuidados" FontFamily="dpcomic" FontSize="50" TextColor="#222129" Margin="5,5,0,0"></Label>
+            <Label HorizontalOptions="Center" Text="Cuidados" FontFamily="dpcomic" FontSize="50" TextColor="#fff"></Label>
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"></RowDefinition>
+            <RowDefinition Height=".7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*"></ColumnDefinition>
+            <ColumnDefinition Width=".6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="dpcomic"></Setter>
+                <Setter Property="FontSize" Value="30"></Setter>
+                <Setter Property="TextColor" Value="white"></Setter>
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="80"></Setter>
+            </Style>
+        </Grid.Resources>
+
+
+
+        <Image Aspect="AspectFill" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="Fondo" IsAnimationPlaying="True"></Image>
+
+        <StackLayout Grid.ColumnSpan="2">
+            <Image Source="{Binding FlorDatos}" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"></Image>
+
+            <Grid BackgroundColor="{Binding Color}" Margin="-8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".6*"></RowDefinition>
+                    <RowDefinition Height=".4*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Text="{Binding FlorDatos}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="60" TextColor="#222129" Margin="8,8,0,0"></Label>
+                <Label Text="{Binding FlorDatos}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="60"></Label>
+                <Label Grid.Row="1" Text="{Binding NombreCient}" HorizontalOptions="Center" TextColor="#222129" Margin="4,4,0,0"></Label>
+                <Label Grid.Row="1" Text="{Binding NombreCient}" HorizontalOptions="Center"></Label>
+            </Grid>
+        </StackLayout>
+
+
+
+        <Frame Margin="10,0" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#de3946">
+
+            <Grid Margin="0" BackgroundColor="#edfaf7">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".1*"></RowDefinition>
+                    <RowDefinition Height=".75*"></RowDefinition>
+                    <RowDefinition Height=".15*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Text="Cuidados" TextColor="#222129" Margin="10,10,10,0" HorizontalTextAlignment="Center" FontSize="40"></Label>
+                <ScrollView Grid.Row="1">
+                    <Label Text="{Binding CaPlantacion}" TextColor="#222129" Margin="10,10,10,0"></Label>
+                </ScrollView>
+
+
+                <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Background="#de3946">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding FloresDisp, StringFormat='OBTENER LA SEMILLA. Flores x {0}'}" TextColor="#222129" Margin="8,8,0,-10"></Label>
+                        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding FloresDisp, StringFormat='OBTENER LA SEMILLA. Flores x {0}'}" TextColor="white" Margin="0,0,0,-10"></Label>
+                    </Grid>
+
+
+                    <Image Source="semilla" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference VentanaCaracteristicas}, Path=BindingContext.CSemillasCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </StackLayout>
+
+            </Grid>
+
+        </Frame>
+    </Grid>
+
+
+</ContentPage>
