@@ -24,11 +24,5 @@ namespace MyGarden
             juego.Play();
             juego.Loop=true;
         }
-
-
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new DatosPlantas());
-        }
     }
 }

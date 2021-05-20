@@ -1,12 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyGarden.Info"   NavigationPage.HasBackButton="False" >
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="MyGarden.Info"   NavigationPage.HasBackButton="False" BackgroundImage="Fondo">
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label HorizontalOptions="Center" Text="Información" FontFamily="dpcomic" FontSize="50" TextColor="#222129" Margin="5,5,0,0"></Label>
+            <Label HorizontalOptions="Center" Text="Información" FontFamily="dpcomic" FontSize="50" TextColor="#fff"></Label>
+        </Grid>
+    </NavigationPage.TitleView>
+    
+    <ScrollView>
+            <ScrollView.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontFamily" Value="dpcomic"></Setter>
+                    <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="TextColor" Value="#222129"></Setter>
+                    <Setter Property="VerticalOptions" Value="Center"></Setter>
+                    <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="WidthRequest" Value="80"></Setter>
+                </Style>
+                <Style TargetType="StackLayout">
+                    <Setter Property="Orientation" Value="Horizontal"></Setter>
+                    <Setter Property="Margin" Value="0,5"></Setter>
+                </Style>
+            </ScrollView.Resources>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Source="Fondo" IsAnimationPlaying="True" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical" Padding="20">
+                <Label Margin="0,10" Text="Hola, en esta pestaña se te explicará un poco la funcionalidad del juego."></Label>
+                <StackLayout>
+                    <Image Source="SGirasol"></Image>
+                    <Label Text="Para empezar, a tu izquierda veras el siguiente icono. Representa la bolsa de semillas de las flores que posees."></Label>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="A la derecha verás las herramientas con las que cuentas para regar y desplantar exitosamente tus flores. "></Label>
+
+                    <Image Grid.Column="1" Source="Regadera"></Image>
+                </StackLayout>
+
+                <StackLayout>
+                    <Image Source="icono"></Image>
+                    <Label VerticalOptions="End" Text="Justo en el centro verás el progreso de tu flor. La flor cambiará según la semilla que elegiste. Al principio solo será una maceta con tierra, pero podrás verla cambiar de estado conforme la vayas cuidando."></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="En la parte de abajo verás representado con este icono el total de flores que posees de alguna flor especifica. Al presionarlo serás llevado a la información de cuidados de la flor que elijas."></Label>
+                    <Image Source="Girasol"></Image>
+                </StackLayout>
+
+                <StackLayout>
+                    <Image Source="Semilla" WidthRequest="50"></Image>
+                    <Label Text="Por ultimo, dentro de la información de la flor, verás al final una semilla, esta te permite intercambiar las flores que hayas desplantado por semillas de la misma y asi seguir plantando más flores."></Label>
+                </StackLayout>
+
+                <Label Margin="10" Text="Con esto deberia ser suficiente para que sepas cómo jugar. El juego está diseñado para que pases un buen rato plantando y aprendiendo del cuidado de las flores, pasala bien"></Label>
+
+                <Button FontFamily="dpcomic" Text="¡A plantar!" FontSize="40" Pressed="Button_Pressed" BackgroundColor="#ef725a"></Button>
+            </StackLayout>
+        </Grid>    
+        
+        
+    </ScrollView>
+
+
+    
 </ContentPage>

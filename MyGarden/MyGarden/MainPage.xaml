@@ -30,11 +30,11 @@
 
         <Image Aspect="AspectFill"  Grid.RowSpan="3" Source="Fondo" IsAnimationPlaying="True"></Image>
 
-        <Label Grid.Row="0" Text="My Garden" FontAttributes="Bold" FontSize="Header" TextColor="#222129" Margin="8,8,0,0"></Label>
-        <Label Grid.Row="0" Text="My Garden" FontAttributes="Bold" FontSize="Header" TextColor="#449d53"></Label>
+        <Label Grid.Row="0" Text="My Garden" FontAttributes="Bold" FontSize="Header" TextColor="#222129" Margin="8,10,0,0"></Label>
+        <Label Grid.Row="0" Text="My Garden" FontAttributes="Bold" FontSize="Header" TextColor="#ff5363"></Label>
 
         <Image Grid.Row="1" Source="Inicio" ></Image>
-        <Label  Grid.Row="1" VerticalOptions="EndAndExpand" Text="PRESIONA LA PANTALLA PARA INICIAR." FontSize="25" FontAttributes="Bold" TextColor="#222129"></Label>
+        <Label  Grid.Row="2" VerticalOptions="StartAndExpand" Text="PRESIONA LA PANTALLA PARA INICIAR." FontSize="25" FontAttributes="Bold" TextColor="#222129"></Label>
         
         <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="EndAndExpand">
             <Label FontSize="Body" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="#222129" Text="César Alejandro Ramirez Gonzalez"></Label>
