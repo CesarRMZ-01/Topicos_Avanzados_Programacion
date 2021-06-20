@@ -5,7 +5,17 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.Android", "MyGarden\MyGarden.Android\MyGarden.Android.csproj", "{A4D88365-5A3A-400A-A913-533C7ADDDBEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden", "MyGarden\MyGarden\MyGarden.csproj", "{94A8B21D-A5F3-40EA-AE76-E2E256B508D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarden", "MyGarden\MyGarden\MyGarden.csproj", "{94A8B21D-A5F3-40EA-AE76-E2E256B508D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recetario", "Recetario\Recetario.csproj", "{C6380467-2C23-4585-9DF2-02F2FDC6D358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agendar Citas", "Agendar Citas\Agendar Citas.csproj", "{2978DD2A-5ABF-4CE6-93B0-DE763538AE1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presión arterial.Android", "Presión arterial\Presión arterial.Android\Presión arterial.Android.csproj", "{8F808880-44D3-49BA-B0E8-DA527D3E0F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presión arterial", "Presión arterial\Presión arterial\Presión arterial.csproj", "{FB87C3E9-7CD9-4752-A4E3-A6BE76B77DBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capitulos", "Capitulos\Capitulos.csproj", "{37901128-61F3-4BA5-8310-8F083E6B048B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +35,28 @@ Global
 		{94A8B21D-A5F3-40EA-AE76-E2E256B508D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94A8B21D-A5F3-40EA-AE76-E2E256B508D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94A8B21D-A5F3-40EA-AE76-E2E256B508D5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C6380467-2C23-4585-9DF2-02F2FDC6D358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6380467-2C23-4585-9DF2-02F2FDC6D358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6380467-2C23-4585-9DF2-02F2FDC6D358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6380467-2C23-4585-9DF2-02F2FDC6D358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2978DD2A-5ABF-4CE6-93B0-DE763538AE1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2978DD2A-5ABF-4CE6-93B0-DE763538AE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2978DD2A-5ABF-4CE6-93B0-DE763538AE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2978DD2A-5ABF-4CE6-93B0-DE763538AE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F808880-44D3-49BA-B0E8-DA527D3E0F91}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FB87C3E9-7CD9-4752-A4E3-A6BE76B77DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB87C3E9-7CD9-4752-A4E3-A6BE76B77DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB87C3E9-7CD9-4752-A4E3-A6BE76B77DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB87C3E9-7CD9-4752-A4E3-A6BE76B77DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37901128-61F3-4BA5-8310-8F083E6B048B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37901128-61F3-4BA5-8310-8F083E6B048B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37901128-61F3-4BA5-8310-8F083E6B048B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37901128-61F3-4BA5-8310-8F083E6B048B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

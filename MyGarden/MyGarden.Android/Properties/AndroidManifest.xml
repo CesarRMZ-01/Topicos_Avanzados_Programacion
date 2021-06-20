@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mygarden" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="mygarden.mygarden" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="20" android:targetSdkVersion="28" />
-	<application android:label="MyGarden.Android" android:theme="@style/MainTheme"></application>
+	<application android:label="My Garden" android:theme="@style/MainTheme" android:icon="@drawable/icono"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Capitulos.EliminarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Capitulos"
+             mc:Ignorable="d" 
+           d:DesignHeight="450" d:DesignWidth="800" Background="#50000000">
+    <Grid>
+        <StackPanel Background="#312a2a" Height="100" Width="350">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="5"></Setter>
+                    <Setter Property="Background" Value="#02b699"></Setter>
+                    <Setter Property="Foreground" Value="#89364b"></Setter>
+                    <Setter Property="FontWeight" Value="bold"></Setter>
+
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Background="#02b699" Padding="5" FontFamily="britannic bold" FontSize="18" HorizontalAlignment="center" Foreground="#89364b" Margin="0,10,0,0" >¿Desea eliminar el episodio seleccionado?</TextBlock>
+            <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+                <Button Cursor="Hand" Margin="0,0,10,0"  Command="{Binding EliminarCommand}" >Eliminar</Button>
+                <Button Cursor="Hand" Padding="5"  Command="{Binding CancelarCommand}">Cancelar</Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

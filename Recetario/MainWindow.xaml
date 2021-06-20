@@ -1,0 +1,156 @@
+﻿<Window x:Class="Recetario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recetario"
+        mc:Ignorable="d"
+        Title="Mi Recetario" Height="800" Width="950" MinHeight="700" MinWidth="700" Icon="Icono.png">
+    <Window.DataContext>
+        <local:Recetarios x:Name="recetarios"></local:Recetarios>
+    </Window.DataContext>
+    
+    <Window.Background>
+        <ImageBrush ImageSource="Food.jpg" Opacity=".6" Stretch="UniformToFill"/>
+    </Window.Background>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"></RowDefinition>
+            <RowDefinition Height=".9*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="#38302e"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#38302e"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+                <Setter Property="Margin" Value="5"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="#38302e"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+                <Setter Property="Margin" Value="5"></Setter>
+            </Style>
+        </Grid.Resources>
+
+
+        <Label Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="50" Foreground="#ffd78d">Menú de Recetas</Label>
+
+        <DockPanel Grid.Row="1"  Margin="20" DockPanel.Dock="Left" >
+
+            <Border DockPanel.Dock="top" CornerRadius="100,100,0,0" Background="#ffd78d" Margin="0,0,0,5" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>¿Qué te gustaría cocinar?</Label>
+                    <Label>Filtrar:</Label>
+                    <ComboBox FontSize="10" FontFamily="Mojito in June.ttf#Mojito in June" Cursor="Hand" DockPanel.Dock="Top" Margin="0,0,0,10" Name="Filtro"  SelectionChanged="Filtro_SelectionChanged" ></ComboBox>
+                </StackPanel>
+            </Border>
+
+            <Border DockPanel.Dock="Bottom" CornerRadius="0,0,30,30" Background="#ffd78d" Margin="0,5,0,0">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label HorizontalAlignment="Center">Agrega tu receta</Label>
+                    <Button Command="{Binding AgregarCommand}" CommandParameter="Agregar" Cursor="Hand" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#98d9c1" BorderBrush="White" BorderThickness="5">&#10010;</Button>
+                </StackPanel>
+            </Border>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <ListBox ItemsSource="{Binding PlatillosFiltrados}" HorizontalContentAlignment="Stretch" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            
+                            <DockPanel Cursor="Hand"  Background="#47a554" HorizontalAlignment="Stretch">
+                                <DockPanel.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Cursor="Hand" Header="Modificar" Command="{Binding Source={x:Reference recetarios}, Path=EditarCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                        <MenuItem Cursor="Hand" Header="Eliminar" Command="{Binding Source={x:Reference recetarios}, Path=VerEliminarCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                    </ContextMenu>
+                                </DockPanel.ContextMenu>
+                                
+                                <Grid Height="300">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".35*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".35*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding Imagen}" Stretch="UniformToFill" Width="130" Grid.Column="0"></Image>
+
+                                    <DockPanel Margin="10" Grid.Column="1">
+                                        <Label DockPanel.Dock="Top" Content="{Binding Nombre}" FontSize="15"></Label>
+                                        <Label Content="{Binding Dificultad}" FontSize="15"></Label>
+                                    </DockPanel>
+
+                                    <DockPanel Margin="10" Grid.Column="2">
+                                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                            <Image DockPanel.Dock="Bottom" Source="Icono.png" Width="30"></Image>
+                                            <Label DockPanel.Dock="Top">Preparación:</Label>
+                                        </StackPanel>
+                                        <ScrollViewer>
+                                            <TextBlock FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="250" FontFamily="Mojito in June.ttf#Mojito in June" Background="white" Text="{Binding Procedimiento}" Padding="10"></TextBlock>
+                                        </ScrollViewer>
+                                    </DockPanel>
+
+                                    <DockPanel Margin="10" Grid.Column="3">
+                                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                            <Image DockPanel.Dock="Bottom" Source="Lista.PNG" Width="30"></Image>
+                                            <Label DockPanel.Dock="Top">Ingredientes:</Label>
+                                        </StackPanel>
+                                        <ScrollViewer>
+                                            <TextBlock  FontSize="16" TextWrapping="Wrap" MaxWidth="250" FontFamily="Mojito in June.ttf#Mojito in June" Background="#fff072" Text="{Binding Ingredientes}"  Padding="10" ></TextBlock>
+                                        </ScrollViewer>
+                                    </DockPanel>
+
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </ScrollViewer>
+
+        </DockPanel>
+        
+        <ContentControl Grid.RowSpan="2">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Agregar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:AgregarPlatillo></local:AgregarPlatillo>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Editar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EditarPlatillo></local:EditarPlatillo>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Eliminar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EliminarPlatillo></local:EliminarPlatillo>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+        
+    </Grid>
+
+</Window>

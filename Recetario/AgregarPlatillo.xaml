@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Recetario.AgregarPlatillo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Recetario"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800" Background="Black">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Food.jpg" Opacity=".4"></ImageBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="AliceBlue"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+                <Setter Property="Margin" Value="5"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#38302e"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+                <Setter Property="Margin" Value="5"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="#38302e"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="FontFamily" Value="Mojito in June.ttf#Mojito in June"></Setter>
+                <Setter Property="Margin" Value="5"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".6*"></ColumnDefinition>
+            <ColumnDefinition Width=".4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".4*"></RowDefinition>
+            <RowDefinition Height=".5*"></RowDefinition>
+            <RowDefinition Height=".1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Margin="20" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <Label HorizontalAlignment="Center" FontSize="30">¡Nueva Receta!</Label>
+            <Label>Nombre del platillo:</Label>
+            <TextBox Text="{Binding Recetass.Nombre}"></TextBox>
+            <Label>¿Qué tan dificil le pareció prepararlo?</Label>
+            <ComboBox SelectedItem="{Binding Recetass.Dificultad}"  Name="Filtro" SelectionChanged="Filtro_SelectionChanged"></ComboBox>
+            <TextBlock Grid.Column="1" Margin="10" Foreground="red" TextAlignment="Center" Text="{Binding Error}"></TextBlock>
+        </StackPanel>
+        <DockPanel Grid.Row="1" Margin="20">
+            <Label DockPanel.Dock="Top">Describe cómo se prepara:</Label>
+            <TextBox Text="{Binding Recetass.Procedimiento}"></TextBox>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
+            <Label DockPanel.Dock="Top">Anota los ingredientes:</Label>
+            <TextBox Text="{Binding Recetass.Ingredientes}" Background="#fff072"></TextBox>
+            </DockPanel>
+        <StackPanel Grid.Row="2">
+            <Label> Agrega una imagen (Escribe su liga de internet):</Label>
+            <TextBox Text="{Binding Recetass.Imagen}" Name="preview"></TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,20">
+            <Button Command="{Binding AgregarNuevoCommand}">Agregar</Button>
+            <Button Command="{Binding CambiarVistaCommand}">Cancelar</Button>
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>
