@@ -39,8 +39,9 @@
 
 
                                 <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock TextWrapping="wrap" FontFamily="bloodcrow.ttf#bloodcrow" FontSize="40" VerticalAlignment="Center" Foreground="white"  Margin="10,10,10,0" Text="{Binding NumEpisodio}" ></TextBlock>
-                                    <TextBlock TextWrapping="wrap" FontFamily="bloodcrow.ttf#bloodcrow" FontSize="20" VerticalAlignment="Center" Foreground="white"  Margin="10,10,10,0" Text="{Binding Titulo}"></TextBlock>
+                                    <TextBlock TextWrapping="wrap" FontFamily="bloodcrow.ttf#bloodcrow" FontSize="40" VerticalAlignment="Center" Foreground="white"  Margin="10,10,10,0" Text="{Binding Titulo}"></TextBlock>
+                                    <TextBlock TextWrapping="wrap" FontFamily="bloodcrow.ttf#bloodcrow" FontSize="20" VerticalAlignment="Center" Foreground="white"  Margin="10,0,10,0" Text="{Binding NumEpisodio, StringFormat='Capítulo {0}'}"  ></TextBlock>
+                                    <TextBlock TextWrapping="wrap" FontFamily="bloodcrow.ttf#bloodcrow" FontSize="10" VerticalAlignment="Center" Foreground="white"  Margin="10,0,10,0" Text="{Binding Temporada, StringFormat='Temporada {0}'}"  ></TextBlock>
                                     <TextBlock TextWrapping="wrap" Foreground="white" VerticalAlignment="Center" Margin="10,10,10,0" Text="{Binding Descripcion }"></TextBlock>
                                 </StackPanel>
                                 
