@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace Presión_arterial
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Presion.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VNuevoRegistro : ContentPage
     {
-        public MainPage()
+        public VNuevoRegistro()
         {
             InitializeComponent();
         }

@@ -27,21 +27,21 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListBox Background="Transparent">
+                <ListBox Background="Transparent" ItemsSource="{Binding Lista}" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#9d3894" CornerRadius="20" Margin="5" Padding="10" Height="100">
+                            <Border Background="#9d3894" CornerRadius="20" Margin="5" Padding="10" Height="100" HorizontalAlignment="Stretch">
                                 <Border.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Editar"></MenuItem>
-                                        <MenuItem Header="Cancelar Cita"></MenuItem>
+                                        <MenuItem Command="{Binding EditarCommand}" Header="Editar"></MenuItem>
+                                        <MenuItem Command="{Binding EliminarCommand}" Header="Cancelar Cita"></MenuItem>
                                     </ContextMenu>
                                 </Border.ContextMenu>
                                 <StackPanel>
-                                    <TextBlock Text="Nombre"></TextBlock>
-                                    <TextBlock Text="NumTelefono"></TextBlock>
-                                    <TextBlock Text="E-Mail"></TextBlock>
-                                    <DatePicker></DatePicker>
+                                    <TextBlock Text="{Binding Nombre}"></TextBlock>
+                                    <TextBlock Text="{Binding Telefono}"></TextBlock>
+                                    <TextBlock Text="{Binding Mail}"></TextBlock>
+                                    <DatePicker IsEnabled="False" SelectedDate="{Binding DiaCita}"></DatePicker>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
@@ -50,7 +50,7 @@
             </ScrollViewer>
 
             <Image Grid.Column="1" Source="pack://application:,,,/Logo.png" DockPanel.Dock="left" Width="300" VerticalAlignment="Top"></Image>
-            <Button BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="20" Margin="0,10" Grid.Column="1" VerticalAlignment="Bottom">Agregar Citas</Button>
+            <Button Command="{Binding RegistrarCommand}" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="20" Margin="0,10" Grid.Column="1" VerticalAlignment="Bottom">Agregar Citas</Button>
         </Grid>
 
     </Grid>

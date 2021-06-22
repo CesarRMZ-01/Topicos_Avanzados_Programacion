@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F808880-44D3-49BA-B0E8-DA527D3E0F91}</ProjectGuid>
+    <ProjectGuid>{828E505B-D985-4487-BFBC-94FB6CDBCCC8}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Presión_arterial.Droid</RootNamespace>
-    <AssemblyName>Presión arterial.Android</AssemblyName>
+    <RootNamespace>Presion.Droid</RootNamespace>
+    <AssemblyName>Presion.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -87,9 +87,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Presión arterial\Presión arterial.csproj">
-      <Project>{F665E0A0-9357-4ED7-9B7D-34C54B1604DA}</Project>
-      <Name>Presión arterial</Name>
+    <ProjectReference Include="..\Presion\Presion.csproj">
+      <Project>{3FDDC7F7-58EA-4134-8844-F6896B3BC586}</Project>
+      <Name>Presion</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

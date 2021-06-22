@@ -36,32 +36,32 @@
                     <Image Source="pack://application:,,,/Espejo.png" Width="30" DockPanel.Dock="Left">
                     </Image>
                     <TextBlock Text="Nombre:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Cliente.Nombre}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Telefono.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Telefono:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Cliente.Telefono}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Mail.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Correo:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox  Text="{Binding Cliente.Mail}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Calendario.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Fecha de la cita:" DockPanel.Dock="Top"></TextBlock>
-                    <DatePicker></DatePicker>
+                    <DatePicker SelectedDate="{Binding Cliente.DiaCita}"></DatePicker>
                 </DockPanel>
             </StackPanel>
 
             <Image Source="pack://application:,,,/Logo.png" Grid.Column="1" Grid.Row="1" Margin="10"></Image>
 
-            <Button Grid.Row="2" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="0,10,10,10" VerticalAlignment="Bottom">Agendar</Button>
-            <Button Grid.Row="2" Grid.Column="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="10,10,0,10" VerticalAlignment="Bottom">Cancelar</Button>
+            <Button Command="{Binding AgregarCommand}" Grid.Row="2" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="0,10,10,10" VerticalAlignment="Bottom">Agendar</Button>
+            <Button Command="{Binding CancelarCommand}" Grid.Row="2" Grid.Column="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="10,10,0,10" VerticalAlignment="Bottom">Cancelar</Button>
 
         </Grid>
 

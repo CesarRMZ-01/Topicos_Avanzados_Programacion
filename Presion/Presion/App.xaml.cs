@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Presión_arterial
+namespace Presion
 {
     public partial class App : Application
     {

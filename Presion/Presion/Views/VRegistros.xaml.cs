@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Presión_arterial.Views
+namespace Presion.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VRegistros : ContentPage
