@@ -25,6 +25,7 @@ namespace Agendar_Citas.ViewModels
         public ICommand GuardarCommand { get; set; }
         public ICommand VerCommand { get; set; }
         public ICommand EliminarCommand { get; set; }
+        public ICommand EliminarVCommand { get; set; }
 
         Citas citas = new Citas();
 
@@ -32,25 +33,31 @@ namespace Agendar_Citas.ViewModels
         VRegistrar RegistrarV;
         VEditar EditarV;
         VCitas CitasV;
+        VCancelarCita CancelarV;
         public CitasCom()
         {
             InicioV = new VInicio() { DataContext = this };
             RegistrarV = new VRegistrar() { DataContext = this };
             EditarV = new VEditar() { DataContext = this };
             CitasV = new VCitas() { DataContext = this };
+            CancelarV = new VCancelarCita() { DataContext = this };
 
             Control = InicioV;
 
             RegistrarCommand = new RelayCommand(Nuevo);
-            CancelarCommand = new RelayCommand(Cancelar);
             AgregarCommand = new RelayCommand(Agregar);
-            VerCommand = new RelayCommand<Cliente>(Ver);
             EditarCommand = new RelayCommand<Cliente>(Editar);
             GuardarCommand = new RelayCommand(Guardar);
+            CancelarCommand = new RelayCommand(Cancelar);
+            EliminarVCommand = new RelayCommand<Cliente>(Elim);
             EliminarCommand = new RelayCommand<Cliente>(Eliminar);
+
+            VerCommand = new RelayCommand<Cliente>(Ver);
 
             CargarDatos();
         }
+
+
 
         public Cliente Cliente
         {
@@ -143,10 +150,15 @@ namespace Agendar_Citas.ViewModels
                 Msj = ex.Message;
             }
         }
-
+        private void Elim(Cliente obj)
+        {
+            Cliente = new Cliente { Id = obj.Id, Nombre = obj.Nombre, Telefono = obj.Telefono, Mail = obj.Mail, DiaCita = obj.DiaCita };
+            Control = CancelarV;
+        }
         private void Eliminar(Cliente obj)
         {
-            citas.Delete(obj);
+            citas.Delete(Cliente);
+            Control = CitasV;
             CargarDatos();
         }
         private void Cancelar()

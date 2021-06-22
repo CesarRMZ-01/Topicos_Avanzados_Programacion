@@ -24,5 +24,10 @@ namespace Agendar_Citas.Views
         {
             InitializeComponent();
         }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agendar_Citas.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" Background="Black">
+             d:DesignHeight="500" d:DesignWidth="800" Background="Black" x:Name="Citas">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/FondoLista.jpg" Stretch="UniformToFill" Opacity=".4"></ImageBrush>
+            <ImageBrush ImageSource="pack://application:,,,/FondoLista.jpg" Stretch="UniformToFill" Opacity=".8"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -27,21 +27,33 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListBox Background="Transparent" ItemsSource="{Binding Lista}" >
+                <ListBox Background="Transparent" ItemsSource="{Binding Lista}" HorizontalContentAlignment="Stretch" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#9d3894" CornerRadius="20" Margin="5" Padding="10" Height="100" HorizontalAlignment="Stretch">
+                            <Border Background="#9d3894" CornerRadius="20" Margin="5" Padding="10" Height="120" HorizontalAlignment="Stretch">
                                 <Border.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Command="{Binding EditarCommand}" Header="Editar"></MenuItem>
-                                        <MenuItem Command="{Binding EliminarCommand}" Header="Cancelar Cita"></MenuItem>
+                                        <MenuItem Command="{Binding Source={x:Reference Citas}, Path=DataContext.EditarCommand}" CommandParameter="{Binding .}" Header="Editar"></MenuItem>
+                                        <MenuItem Command="{Binding Source={x:Reference Citas}, Path=DataContext.EliminarVCommand}" CommandParameter="{Binding .}" Header="Cancelar Cita"></MenuItem>
                                     </ContextMenu>
                                 </Border.ContextMenu>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Nombre}"></TextBlock>
-                                    <TextBlock Text="{Binding Telefono}"></TextBlock>
-                                    <TextBlock Text="{Binding Mail}"></TextBlock>
-                                    <DatePicker IsEnabled="False" SelectedDate="{Binding DiaCita}"></DatePicker>
+                                    <DockPanel>
+                                        <Image Source="pack://application:,,,/Espejo.png" Width="20" DockPanel.Dock="Left"></Image>
+                                        <TextBlock Text="{Binding Nombre}"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Image Source="pack://application:,,,/Telefono.png" Width="20" DockPanel.Dock="Left"></Image>
+                                        <TextBlock Text="{Binding Telefono}"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Image Source="pack://application:,,,/Mail.png" Width="20" DockPanel.Dock="Left"></Image>
+                                        <TextBlock Text="{Binding Mail}"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Image Source="pack://application:,,,/Calendario.png" Width="20" DockPanel.Dock="Left"></Image>
+                                        <DatePicker IsEnabled="False" SelectedDate="{Binding DiaCita}"></DatePicker>
+                                    </DockPanel>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>

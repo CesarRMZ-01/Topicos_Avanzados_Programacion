@@ -19,8 +19,8 @@
         <Border Grid.ColumnSpan="2" Background="#9d3894" Margin="0,30">
             <TextBlock FontSize="20" FontFamily="Mojito in June.ttf#Mojito in June" Foreground="AliceBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Text="¿Está seguro que desea cancelar la cita?"></TextBlock>
         </Border>
-        <Button Grid.Row="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="0,0,5,5">Sí</Button>
-        <Button Grid.Row="1" Grid.Column="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="5,0,0,5">No</Button>
+        <Button Command="{Binding EliminarCommand}" Grid.Row="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="0,0,5,5">Sí</Button>
+        <Button Command="{Binding CancelarCommand}" Grid.Row="1" Grid.Column="1" BorderBrush="#9d3894" FontFamily="Mojito in June.ttf#Mojito in June" Background="#9d3894" Foreground="AliceBlue" FontSize="15" Margin="5,0,0,5">No</Button>
 
     </Grid>
 </UserControl>

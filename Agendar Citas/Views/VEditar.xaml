@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Agendar_Citas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800" Background="Transparent">
-    <Grid Background="Black" Width="600" Height="400">
-        <Grid Width="600" Height="400">
+    <Grid Background="Black" Margin="100,50">
+        <Grid>
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Fondo_Registro.jpg" Opacity=".4"></ImageBrush>
             </Grid.Background>
@@ -36,25 +36,25 @@
                     <Image Source="pack://application:,,,/Espejo.png" Width="30" DockPanel.Dock="Left">
                     </Image>
                     <TextBlock Text="Nombre:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Cliente.Nombre}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Telefono.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Telefono:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Cliente.Telefono}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Mail.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Correo:" DockPanel.Dock="Top"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Cliente.Mail}"></TextBox>
                 </DockPanel>
 
                 <DockPanel Margin="10">
                     <Image Source="pack://application:,,,/Calendario.png" Width="30" DockPanel.Dock="Left"></Image>
                     <TextBlock Text="Fecha de la cita:" DockPanel.Dock="Top"></TextBlock>
-                    <DatePicker></DatePicker>
+                    <DatePicker SelectedDate="{Binding Cliente.DiaCita}"></DatePicker>
                 </DockPanel>
             </StackPanel>
 

@@ -6,10 +6,14 @@
         xmlns:local="clr-namespace:Agendar_Citas.Views" 
         xmlns:vm="clr-namespace:Agendar_Citas.ViewModels"
         mc:Ignorable="d"
-        Title="Your Nature" Height="500" Width="800" Background="Black" Icon="pack://application:,,,/Logo.png">
+        Title="Your Nature" Height="500" Width="800" Icon="pack://application:,,,/Logo.png">
     <Window.DataContext>
         <vm:CitasCom></vm:CitasCom>
     </Window.DataContext>
+    
+        <Window.Background>
+            <ImageBrush ImageSource="pack://application:,,,/FondoLista.jpg" Stretch="UniformToFill" Opacity=".6"></ImageBrush>
+        </Window.Background>
     <ContentControl Content="{Binding Control}">
 
     </ContentControl>
