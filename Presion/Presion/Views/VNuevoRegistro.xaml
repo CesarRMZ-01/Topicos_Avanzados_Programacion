@@ -1,12 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Presion.Views.VNuevoRegistro">
+             x:Class="Presion.Views.VNuevoRegistro" BackgroundColor="Black" NavigationPage.HasNavigationBar="False" x:Name="nvo">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor" Value="AliceBlue"></Setter>
+                </Style>
+                <Style TargetType="Entry">
+                    <Setter Property="Keyboard" Value="Numeric"></Setter>
+                </Style>
+
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"></RowDefinition>
+                <RowDefinition Height=".6*"></RowDefinition>
+                <RowDefinition Height=".2*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Grid.RowSpan="3" Source="FondoMedir" HorizontalOptions="StartAndExpand" Opacity=".3" Aspect="AspectFill"></Image>
+            <Label FontSize="30" TextColor="#bd1c50" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Text="Registre su presión de hoy"></Label>
+            <Label FontSize="20" TextColor="Red" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Text="{Binding Msj}"></Label>
+
+            <Grid Grid.Row="1" Margin="10" VerticalOptions="Center" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                    <ColumnDefinition Width=".35*"></ColumnDefinition>
+                    <ColumnDefinition Width=".55*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Frame CornerRadius="5" BackgroundColor="AliceBlue" VerticalOptions="Center"></Frame>
+                <Frame Grid.Row="1" CornerRadius="5" BackgroundColor="AliceBlue" VerticalOptions="Center"></Frame>
+                <Frame Grid.Row="2" CornerRadius="5" BackgroundColor="AliceBlue" VerticalOptions="Center"></Frame>
+                <Frame Grid.Row="3" CornerRadius="5" BackgroundColor="AliceBlue" VerticalOptions="Center"></Frame>
+                <Frame Grid.Row="4" CornerRadius="5" BackgroundColor="AliceBlue" VerticalOptions="Center"></Frame>
+
+                <Image Source="Calendario"></Image>
+                <Image Source="Reloj" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                <Image Source="PresionIcono" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                <Image Source="PresionIcono" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                <Image Source="Icon" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+
+                <Label Text="Fecha:" Grid.Column="1" VerticalOptions="Center"></Label>
+                <Label Text="Hora:" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"></Label>
+                <Label Text="Presión sistólica:" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"></Label>
+                <Label Text="Presión diastólica:" Grid.Column="1" Grid.Row="3" VerticalOptions="Center"></Label>
+                <Label Text="Pulso:" Grid.Column="1" Grid.Row="4" VerticalOptions="Center"></Label>
+
+                <Frame Grid.Column="2" Grid.RowSpan="5" CornerRadius="10" ></Frame>
+                <Label Text="*Se tomará la fecha actual.*" Grid.Column="2" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center"></Label>
+                <Label Text="*Se tomará la hora actual.*" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center"></Label>
+                <Entry Text="{Binding PSis}" Grid.Column="2" Grid.Row="2" VerticalOptions="Center"></Entry>
+                <Entry Text="{Binding PDia}" Grid.Column="2" Grid.Row="3" VerticalOptions="Center"></Entry>
+                <Entry Text="{Binding Presion}" Grid.Column="2" Grid.Row="4" VerticalOptions="Center"></Entry>
+
+            </Grid>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center">
+                <Button Text="Registrar"  TextColor="AliceBlue" CornerRadius="50" Margin="0,30" Background="#bd1c50" Command="{Binding Source={x:Reference nvo}, Path=BindingContext.Agregar}" CommandParameter="{Binding .}"></Button>
+                <Button Text="Cancelar"  TextColor="AliceBlue" CornerRadius="50" Margin="0,30" Background="#bd1c50" Command="{Binding Source={x:Reference nvo}, Path=BindingContext.Cancelar}" CommandParameter="{Binding .}" ></Button>
+            </StackLayout>
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

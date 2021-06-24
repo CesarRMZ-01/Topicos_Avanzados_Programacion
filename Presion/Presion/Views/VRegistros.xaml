@@ -1,12 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Presion.Views.VRegistros">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Presion.Views.VRegistros" Background="black" NavigationPage.HasNavigationBar="False" x:Name="rgstrs">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"></RowDefinition>
+            <RowDefinition Height=".6*"></RowDefinition>
+            <RowDefinition Height=".2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="Fondo" Grid.RowSpan="3" Aspect="AspectFill" Opacity=".4"></Image>
+        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="45" Text="Revisa tus registros" TextColor="AliceBlue" FontAttributes="Bold"></Label>
+
+        <Grid Margin="10" Grid.Row="1">
+            <CollectionView Margin="10" ItemsSource="{Binding registros}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="AliceBlue" CornerRadius="20" Grid.Row="1" >
+                            <Grid HeightRequest="200">
+                                <Image Source="Icon" HorizontalOptions="StartAndExpand" Opacity=".4"></Image>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".4*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Image Source="Calendario"></Image>
+                                    <Image Source="Reloj" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                                    <Image Source="PresionIcono" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                                    <Image Source="PresionIcono" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                                    <Image Source="Icon" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+
+                                    <Label Text="Fecha:" Grid.Column="1" VerticalOptions="Center"></Label>
+                                    <Label Text="Hora:" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"></Label>
+                                    <Label Text="Presión sistólica:" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"></Label>
+                                    <Label Text="Presión diastólica:" Grid.Column="1" Grid.Row="3" VerticalOptions="Center"></Label>
+                                    <Label Text="Pulso:" Grid.Column="1" Grid.Row="4" VerticalOptions="Center"></Label>
+
+                                    <DatePicker Date="{Binding Fecha}" Grid.Column="2" VerticalOptions="Center"></DatePicker>
+                                    <TimePicker Time="{Binding Hora}" Grid.Column="2" Grid.Row="1" VerticalOptions="Center"></TimePicker>
+                                    <Label Text="{Binding PSis}" Grid.Column="2" Grid.Row="2" VerticalOptions="Center"></Label>
+                                    <Label Text="{Binding PDias}" Grid.Column="2" Grid.Row="3" VerticalOptions="Center"></Label>
+                                    <Label Text="{Binding Presion}" Grid.Column="2" Grid.Row="4" VerticalOptions="Center"></Label>
+
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Button Text="Registrar Presión" TextColor="AliceBlue"  Grid.Row="2" CornerRadius="50" VerticalOptions="Center" Margin="0,30" Background="#bd1c50" Command="{Binding Source={x:Reference  rgstrs}, Path=BindingContext.NuevoRegistro}" CommandParameter="{Binding .}"></Button>
+
+    </Grid>
+
 </ContentPage>

@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Presion.Views.VInicio">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Presion.ViewModels"
+             x:Class="Presion.Views.VInicio" Background="black" NavigationPage.HasNavigationBar="False" >
+
+    <ContentPage.BindingContext>
+        <vm:RegistroVM x:Name="registro"></vm:RegistroVM>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Source={x:Reference registro},Path=Iniciar}" CommandParameter="{Binding .}">
+            </TapGestureRecognizer>
+        </Grid.GestureRecognizers>
+        <Image Source="Fondo" Aspect="AspectFill" Opacity=".7"></Image>
+
+        <Grid Margin="20">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontFamily" Value="Maji"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".6*"></RowDefinition>
+                <RowDefinition Height=".2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout VerticalOptions="Center">
+                <Image VerticalOptions="Center" Source="Icon" Aspect="AspectFit"></Image>
+                <Label FontSize="Header" Text="I Care" TextColor="AliceBlue" HorizontalOptions="Center" VerticalOptions="StartAndExpand" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <Label FontSize="15" Grid.Row="1" TextColor="AliceBlue" Text="Presione la pantalla para revisar su presión arterial" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"></Label>
+        </Grid>
+
+    </Grid>
+
 </ContentPage>

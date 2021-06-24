@@ -100,9 +100,9 @@ namespace Agendar_Citas.ViewModels
         private void CargarDatos()
         {
             Lista.Clear();
-            foreach (var cuentos in citas.GetAll())
+            foreach (var cit in citas.GetAll())
             {
-                Lista.Add(cuentos);
+                Lista.Add(cit);
             }
         }
         private void Nuevo()

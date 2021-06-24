@@ -10,7 +10,7 @@ namespace Presion
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.VInicio());
         }
 
         protected override void OnStart()
